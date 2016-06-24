@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Object Creation in JavaScript</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = '{"questions":[' +
+'{"tex":"How are you?","ts":"3","ID":"1"},' +
+'{"tex":"What are you doing?","ts":"4","ID":"2"},' +
+'{"tex":"Are you sleeping?","ts":"11","ID":"7"}]}';
+
+// '{"questions":['+'{"tex":"How are you?","ts":"3","ID":"1"},'+'{"tex":"What are you doing?","ts":"4","ID":"2"},'+'{"tex":"Why don''t you answer?","ts":"10","ID":"6"},'+'{"tex":"Are you sleeping?","ts":"11","ID":"7"},'+'{"tex":"Where are you?","ts":"15","ID":"8"}]}';
+
+var obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML = obj.questions[1].tex + "<br>" + obj.questions[1].ID;
+</script>
+
+</body>
+</html>

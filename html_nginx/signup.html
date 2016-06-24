@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Sign Up</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Sign Up</h2>
+        <div class="form-group">
+        <label for="login">Login</label>
+        <input type="login" class="form-control" placeholder="example" minlength="5" pattern="^[a-zA-Z][a-zA-Z0-9-_]{4,}$" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required autofocus>
+        <span class="help-block">Minimum of 5 characters</span>
+        </div>
+        <div class="alert">   
+            <strong style="color:red;">Wrong login!</strong>   
+        </div>  
+        <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="nickname" class="form-control" placeholder="example" required autofocus>
+        </div>
+        <div class="alert">   
+            <strong style="color:red;">Wrong nickname!</strong>   
+        </div>  
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="example@example.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,4}$" oninvalid="InvalidMsgEmail(this);" oninput="InvalidMsgEmail(this);" required autofocus>
+        </div>
+        <div class="alert">   
+            <strong style="color:red;">Wrong email!</strong>   
+        </div>  
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" minlength="5" placeholder="*****" pattern="{4,}" required autofocus>
+        <span class="help-block">Minimum of 5 characters</span>
+        </div>
+        <div class="alert">   
+            <strong style="color:red;">Wrong password!</strong>   
+        </div>  
+        <div class="form-group">
+        <label for="passwordCheck">Confirm password</label>
+        <input type="password" id="confirm_password" class="form-control" minlength="5" placeholder="*****" required autofocus>
+        </div>
+        <div class="form-group">
+        <label class="control-label">Select image</label>
+        <input id="input-1" type="file" class="file">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <br>
+        <label>Already have an account?
+          <a href="login.html">Log in</a>
+        </label>
+      </form>
+      <footer>
+        <p>&copy; Rogushkova Ekaterina</p>
+    </footer>
+    </div> <!-- /container -->
+    <script src="validator.js"></script>
+  </body>
+</html>

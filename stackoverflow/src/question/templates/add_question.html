@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Ask a question</title>{% endblock %}
+{% block body %}
+   <!-- Fixed navbar -->
+   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Project name</a>
+        
+        
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        <li><a href="../../main_page/">Questions</a></li>
+        <li class="active"><a href="#">Ask question</a></li>
+        </ul>
+    <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li><a href="../../user_page/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="../../log_in/log_out/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+        {% else %}
+        <li><a href="../../sign_up/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../../log_in/"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        {% endif %}
+    </ul>
+
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>New Question</h2>
+        <br>
+        <br>
+        {% for error in form.errors %}
+        <span class="error-message">{{ error }}</span>
+        {% endfor %}
+        <form class="form-horizontal" method="post" action=".">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="title" name="title" class="form-control" id="title" placeholder="What's your question?" required autofocus>
+                </div>
+            </div>
+            <!-- <div class="alert" style="padding-left:110px;">   
+                <strong style="color:red;">This title is used!</strong>   
+            </div>  
+         -->
+            <div class="form-group">
+                <label for="text" class="col-sm-2 control-label">Text</label>
+                <div class="col-sm-10">
+                    <textarea type="text" name="text" rows="5" class="form-control noResize" id="text" placeholder="Text" required autofocus></textarea>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label for="inputTags" class="col-sm-2 control-label">Tags</label>
+                <div class="col-sm-10">
+                    <input type="tags" class="form-control" id="inputTags" placeholder="" autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Ask!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> <!-- /container -->
+
+{% endblock %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Ask a Question</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+</head>
+
+<body>
+   <!-- Fixed navbar -->
+   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="list_question.html">Questions</a></li>
+        <li><a href="add_question.html">Ask question</a></li>
+        </ul>
+    <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="list_question.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+    </ul>
+
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>New Question</h2>
+        <br>
+        <br>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="title" class="form-control" id="inputTitle" placeholder="What's your question?" required autofocus>
+                </div>
+            </div>
+            <div class="alert" style="padding-left:110px;">   
+                <strong style="color:red;">This title is used!</strong>   
+            </div>  
+        
+            <div class="form-group">
+                <label for="inputText" class="col-sm-2 control-label">Text</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="inputText" placeholder="Text" required autofocus></textarea>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label for="inputTags" class="col-sm-2 control-label">Tags</label>
+                <div class="col-sm-10">
+                    <input type="tags" class="form-control" id="inputTags" placeholder="" autofocus>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Ask!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<footer>
+        <p>&copy; Rogushkova Ekaterina</p>
+    </footer>
+</div> <!-- /container -->
+
+</body>
+</html>

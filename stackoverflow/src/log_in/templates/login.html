@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Log In</title>{% endblock %}
+{% block body %}
+   <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Project name</a>
+        
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        <li><a href="../main_page/">Questions</a></li>
+        <li><a href="../question/add/">Ask question</a></li>
+        </ul>
+    <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li><a href="../user_page/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="log_out/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+        {% else %}
+        <li><a href="../sign_up/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        {% endif %}
+    </ul>
+
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+
+    <div class="container">
+        <div class="jumbotron">
+       {% if form.errors %}
+       <div class="alert">   
+            <strong style="color:red;">Your username and password didn't match. Please try again.</strong>   
+        </div>
+        {% endif %} 
+       <form class="form-signin" method="post" action=".">
+       {% csrf_token %}
+        <h2 class="form-signin-heading">Log in</h2>
+        <div class="form-group" id="formLogIn">
+        <label for="username">Login</label>
+        <input type="username" name="username" id="username" class="form-control" value="" placeholder="example" required autofocus>
+        <br>  
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" value="" placeholder="*****" required autofocus>  
+        </div>
+        <label class="checkbox" style="margin-left:20px;">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <br>
+        <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block"/>
+        <input type="hidden" name="next" value="{{ next|escape }}" />
+        <br>
+        <br>
+        <label>Don't have an account?
+          <a href="../sign_up/">Sign up</a>
+        </label>
+      </form>
+      </div>
+    </div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Sign Up</title>{% endblock %}
+{% block body %}
+   <!-- Fixed navbar -->
+   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Project name</a>
+        
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        <li><a href="../main_page/">Questions</a></li>
+        <li><a href="../question/add/">Ask question</a></li>
+        </ul>
+    <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li><a href="../user_page/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="../log_in/log_out/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+        {% else %}
+        <li class="active"><a href="../sign_up/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../log_in/"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        {% endif %}
+    </ul>
+
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+    <div class="container">
+        <div class="jumbotron">
+        {% for error in form.errors %}
+    <span class="error-message">{{ error }}</span>
+{% endfor %}
+      <form class="form-signin" method="post" action=".">
+      {% csrf_token %}
+        <h2 class="form-signin-heading">Sign Up</h2>
+        <div class="form-group">
+        <label for="username">Login</label>
+        <input type="username" name="username" value="" id="username" class="form-control" placeholder="example" minlength="5" pattern="^[a-zA-Z][a-zA-Z0-9-_]{4,}$" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required autofocus>
+        <span class="help-block">Minimum of 5 characters</span>
+        </div>
+        {% if error %}
+        <div class="alert">   
+            <strong style="color:red;">Wrong login!</strong>   
+        </div>
+        {% endif %}  
+        <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="nickname" name="nickname" value="" id="nickname" class="form-control" placeholder="example" required autofocus>
+        </div>
+        {% if error %}
+        <div class="alert">   
+            <strong style="color:red;">Wrong nickname!</strong>   
+        </div>  
+        {% endif %}
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" value="" id="email" class="form-control" placeholder="example@example.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,4}$" oninvalid="InvalidMsgEmail(this);" oninput="InvalidMsgEmail(this);" required autofocus>
+        </div>
+        {% if error %}
+        <div class="alert">   
+            <strong style="color:red;">Wrong email!</strong>   
+        </div> 
+        {% endif %} 
+        <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" id="password1" name="password1" value="" class="form-control" minlength="5" placeholder="*****" pattern="{4,}" required autofocus>
+        <span class="help-block">Minimum of 5 characters</span>
+        </div>
+        {% if error %}
+        <div class="alert">   
+            <strong style="color:red;">Wrong password!</strong>   
+        </div>
+        {% endif %}  
+        <div class="form-group">
+        <label for="password2">Confirm password</label>
+        <input type="password" id="password2" name="password2" value="" class="form-control" minlength="5" placeholder="*****" required autofocus>
+        </div>
+        <!-- <div class="form-group">
+        <label class="control-label">Select image</label>
+        <input id="input-1" type="file" class="file">
+        </div> -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <br>
+        <label>Already have an account?
+          <a href="../log_in/">Log in</a>
+        </label>
+      </form>
+      </div>
+    </div> <!-- /container -->
+{% endblock %}

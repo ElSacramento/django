@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% for restaurant in restaurants %}
+<a href="/restaurants/{{ restaurant.urlname }}"><h2>{{ restaurant.name }}</h2></a>
+{% endfor %}
+{% endblock %}
